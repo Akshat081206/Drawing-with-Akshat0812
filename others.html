@@ -1,18 +1,170 @@
-<div style="text-align:center; margin-bottom:30px; margin-top:30px;"><img src="ajlogo.png"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Works - Drawing With Akshat0812</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        body.modal-open { overflow: hidden; }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-900 font-sans">
 
-<div style="text-align:center; margin-top:30px;">
-<a style="padding-right:20px;" href="index.html">Home</a>
-<a style="padding-right:20px;" href="watercolor.html">Watercolour</a>
-<a style="padding-right:20px;" href="pencil.html">pencil_sketch</a>
-<a style="padding-right:20px;" href="video.html">videos</a>
-<a style="padding-right:20px;" href="others.html">Others</a>
-</div>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-orange-600">
+                        Akshat0812
+                    </span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Home</a>
+                    <a href="watercolor.html" class="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Watercolour</a>
+                    <a href="pencil.html" class="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Pencil Sketch</a>
+                    <a href="video.html" class="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Videos</a>
+                    <!-- Active Link -->
+                    <a href="others.html" class="text-yellow-600 font-bold border-b-2 border-yellow-600">Others</a>
+                    <a href="https://www.instagram.com/drawing_with_akshat0812" target="_blank" class="bg-pink-600 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-pink-700 transition-colors">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                        <span>Follow</span>
+                    </a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gray-600 hover:text-gray-900">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700">Home</a>
+                <a href="watercolor.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700">Watercolour</a>
+                <a href="pencil.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700">Pencil Sketch</a>
+                <a href="video.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700">Videos</a>
+                <a href="others.html" class="block px-3 py-2 rounded-md text-base font-medium text-yellow-600 bg-yellow-50">Others</a>
+            </div>
+        </div>
+    </nav>
 
-<h1 style="font-size:60px; text-align:center; background-color: yellow; padding: 15px 35px 15px 35px; color: black;">others</h1>
+    <!-- Hero Section -->
+    <header class="relative bg-white overflow-hidden border-b border-gray-100">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDIxNSwwLDAuMDUpIi8+PC9zdmc+')]"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-4">
+                Other <span class="text-yellow-500">Information</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+                "Art can be a form of worship, a way to connect with the divine, or simply therapy."
+            </p>
+        </div>
+    </header>
 
-<p style="font-size:20px; text-align:center; line-height: 20px; margin-bottom:50px;">My name is Akshat jain <br>For me art can be a form of worship, art is a way to connect with the divine, reflect God's beauty, or find a deeper spiritual purpose <br>art is a therapy and a way of expressing yourself</P>
+    <!-- Gallery Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div id="gallery-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- JS Injects Art Here -->
+        </div>
+    </main>
 
-<div style="text-align:center;"><a style="font-size:20px; background-color: red; padding: 15px 35px 15px 35px; color: white;" href="https://www.instagram.com/drawing_with_akshat0812?igsh=djQ3NXB1cmFiaW1x">Visit instagram</a></div>
+    <!-- ZOOM MODAL -->
+    <div id="lightbox" class="fixed inset-0 z-[60] bg-black/95 hidden flex flex-col justify-center items-center">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white hover:text-gray-300 p-2 z-[70]">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <div class="relative w-full h-full flex justify-center items-center overflow-hidden p-4">
+            <img id="lightbox-img" src="" class="max-h-[85vh] max-w-[95vw] object-contain transition-transform duration-200">
+        </div>
+        <div class="absolute bottom-8 flex gap-6 bg-white/10 backdrop-blur-md px-8 py-3 rounded-full text-white items-center border border-white/20 z-[70]">
+            <button onclick="zoomOut()" class="hover:text-yellow-400 p-1"><i data-lucide="minus" class="w-6 h-6"></i></button>
+            <span id="zoom-level" class="font-mono font-bold w-16 text-center select-none">100%</span>
+            <button onclick="zoomIn()" class="hover:text-yellow-400 p-1"><i data-lucide="plus" class="w-6 h-6"></i></button>
+        </div>
+    </div>
 
-<hr style="width: 60%; margin-bottom:100px; margin-top:100px;">
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-20">
+        <div class="max-w-7xl mx-auto py-12 px-4 text-center">
+            <p class="text-gray-400">© 2024 Drawing With Akshat0812. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // --- OTHERS DATA ---
+        const artworks = [
+            { id: 1, title: "My workspace", src: "im 12.jpeg", fallback: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800", desc: "My comfort zone.", likes: 0, comments: [] },
+            { id: 2, title: "Guitar artwork", src: "im 13.jpeg", fallback: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800", desc: "music and art blend.", likes: 0, comments: [] },
+            // Add more artwork here
+        ];
+
+        const galleryContainer = document.getElementById('gallery-container');
+
+        function renderGallery() {
+            galleryContainer.innerHTML = '';
+            artworks.forEach((art, index) => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-[1.01] duration-300 border-t-4 border-yellow-400"; 
+                card.innerHTML = `
+                    <div class="relative group aspect-[4/3] bg-gray-100 overflow-hidden">
+                        <img src="${art.src}" onerror="this.src='${art.fallback}'" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                            <button onclick="openLightbox('${art.src}', '${art.fallback}')" class="bg-white/90 p-3 rounded-full hover:bg-white text-gray-800"><i data-lucide="eye" class="w-6 h-6"></i></button>
+                            <button onclick="downloadImage('${art.src}', ${art.id})" class="bg-white/90 p-3 rounded-full hover:bg-white text-gray-800"><i data-lucide="download" class="w-6 h-6"></i></button>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">${art.title}</h3>
+                        <p class="text-gray-500 text-sm mb-4">${art.desc}</p>
+                        <div class="flex items-center justify-between border-t border-gray-100 pt-4">
+                            <div class="flex gap-4">
+                                <button onclick="toggleLike(${index})" class="flex items-center gap-1.5 transition-colors ${art.isLiked ? 'text-red-500' : 'text-gray-500 hover:text-red-500'}"><i data-lucide="heart" class="w-5 h-5" fill="${art.isLiked ? 'currentColor' : 'none'}"></i><span class="font-medium">${art.likes}</span></button>
+                                <button onclick="toggleComments(${index})" class="flex items-center gap-1.5 text-gray-500 hover:text-yellow-500"><i data-lucide="message-circle" class="w-5 h-5"></i><span class="font-medium">${art.comments.length}</span></button>
+                            </div>
+                            <button onclick="shareArt('${art.title}')" class="text-gray-400 hover:text-gray-800"><i data-lucide="share-2" class="w-5 h-5"></i></button>
+                        </div>
+                        <div id="comments-${index}" class="hidden mt-4 pt-4 border-t border-gray-100">
+                            <div class="max-h-40 overflow-y-auto space-y-2 mb-3 scrollbar-hide">${art.comments.map(c => `<div class="bg-gray-50 p-2 rounded-lg text-sm text-gray-700">${c}</div>`).join('')}</div>
+                            <form onsubmit="addComment(event, ${index})" class="flex gap-2">
+                                <input type="text" name="comment" placeholder="Add comment..." class="flex-1 text-sm border rounded-full px-4 py-2 focus:outline-none focus:border-yellow-500 bg-gray-50">
+                                <button type="submit" class="bg-yellow-500 text-white p-2 rounded-full hover:bg-yellow-600"><i data-lucide="send" class="w-4 h-4"></i></button>
+                            </form>
+                        </div>
+                    </div>`;
+                galleryContainer.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        // Logic (Same as others)
+        let currentZoom = 1;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const zoomLevelDisplay = document.getElementById('zoom-level');
+
+        function openLightbox(src, fallback) { currentZoom = 1; lightboxImg.src = src; lightboxImg.onerror = function() { this.src = fallback; }; updateZoom(); lightbox.classList.remove('hidden'); document.body.classList.add('modal-open'); }
+        function closeLightbox() { lightbox.classList.add('hidden'); document.body.classList.remove('modal-open'); lightboxImg.src = ""; }
+        function zoomIn() { if (currentZoom < 3) { currentZoom += 0.25; updateZoom(); } }
+        function zoomOut() { if (currentZoom > 0.5) { currentZoom -= 0.25; updateZoom(); } }
+        function updateZoom() { lightboxImg.style.transform = `scale(${currentZoom})`; zoomLevelDisplay.innerText = `${Math.round(currentZoom * 100)}%`; }
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+        function toggleLike(index) { const art = artworks[index]; art.isLiked = !art.isLiked; art.likes += art.isLiked ? 1 : -1; renderGallery(); }
+        function toggleComments(index) { document.getElementById(`comments-${index}`).classList.toggle('hidden'); }
+        function addComment(event, index) { event.preventDefault(); const text = event.target.elements.comment.value.trim(); if (text) { artworks[index].comments.push(text); renderGallery(); document.getElementById(`comments-${index}`).classList.remove('hidden'); } }
+        function shareArt(title) { if(navigator.share) navigator.share({title, url: window.location.href}); else alert("Link copied!"); }
+        function downloadImage(src, id) { const link = document.createElement('a'); link.href = src; link.download = `Other_${id}.jpg`; document.body.appendChild(link); link.click(); document.body.removeChild(link); }
+
+        renderGallery();
+    </script>
+</body>
+</html>
 
