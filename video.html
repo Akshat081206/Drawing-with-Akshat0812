@@ -1,18 +1,122 @@
-<div style="text-align:center; margin-bottom:30px; margin-top:30px;"><img src="ajlogo.png"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos - Drawing With Akshat0812</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 text-gray-900 font-sans">
 
-<div style="text-align:center; margin-top:30px;">
-<a style="padding-right:20px;" href="index.html">Home</a>
-<a style="padding-right:20px;" href="watercolor.html">Watercolour</a>
-<a style="padding-right:20px;" href="pencil.html">pencil_sketch</a>
-<a style="padding-right:20px;" href="video.html">videos</a>
-<a style="padding-right:20px;" href="others.html">Others</a>
-</div>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
+                        Akshat0812
+                    </span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-black font-medium transition-colors">Home</a>
+                    <a href="watercolor.html" class="text-gray-600 hover:text-black font-medium transition-colors">Watercolour</a>
+                    <a href="pencil.html" class="text-gray-600 hover:text-black font-medium transition-colors">Pencil Sketch</a>
+                    <!-- Active Link -->
+                    <a href="video.html" class="text-black font-bold border-b-2 border-black">Videos</a>
+                    <a href="others.html" class="text-gray-600 hover:text-black font-medium transition-colors">Others</a>
+                    <a href="https://www.instagram.com/drawing_with_akshat0812" target="_blank" class="bg-pink-600 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-pink-700 transition-colors">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                        <span>Follow</span>
+                    </a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gray-600 hover:text-gray-900">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700">Home</a>
+                <a href="watercolor.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700">Watercolour</a>
+                <a href="pencil.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700">Pencil Sketch</a>
+                <a href="video.html" class="block px-3 py-2 rounded-md text-base font-medium text-black bg-gray-100">Videos</a>
+                <a href="others.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700">Others</a>
+            </div>
+        </div>
+    </nav>
 
-<h1 style="font-size:60px; text-align:center; background-color: black; padding: 15px 35px 15px 35px; color: white;">videos</h1>
+    <!-- Hero Section -->
+    <header class="bg-black text-white py-16 text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Art Process & <span class="text-red-500">Tutorials</span></h1>
+        <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400">"Watch the magic happen, stroke by stroke."</p>
+    </header>
 
-<p style="font-size:20px; text-align:center; line-height: 20px; margin-bottom:50px;">My name is Akshat jain <br>Here is my video section where i show my art process and content about art</P>
+    <!-- Video Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div id="video-container" class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <!-- Videos injected by JS -->
+        </div>
+    </main>
 
-<div style="text-align:center;"><a style="font-size:20px; background-color: red; padding: 15px 35px 15px 35px; color: white;" href="https://www.instagram.com/drawing_with_akshat0812?igsh=djQ3NXB1cmFiaW1x">Visit instagram</a></div>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-20">
+        <div class="max-w-7xl mx-auto py-12 px-4 text-center">
+            <p class="text-gray-400">© 2024 Drawing With Akshat0812. All rights reserved.</p>
+        </div>
+    </footer>
 
-<hr style="width: 60%; margin-bottom:100px; margin-top:100px;">
+    <script>
+        lucide.createIcons();
+
+        // --- VIDEO DATA ---
+        // Put your video files in the folder and name them like 'vid1.mp4'
+        const videos = [
+            { 
+                id: 1, 
+                title: "God's plan is best paln", 
+                src: "vi 1.mp4", 
+                desc: "I am the reason of all my loss and they are the reason of my each and every win." 
+            },
+            {        
+            // Add more videos here
+        ];
+
+        const container = document.getElementById('video-container');
+
+        // Render Videos
+        videos.forEach(vid => {
+            const card = document.createElement('div');
+            card.className = "bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200";
+            card.innerHTML = `
+                <div class="aspect-video bg-black relative">
+                    <!-- Standard HTML5 Video Player -->
+                    <video controls class="w-full h-full">
+                        <source src="${vid.src}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">${vid.title}</h3>
+                    <p class="text-gray-600">${vid.desc}</p>
+                    <div class="mt-4 flex gap-4">
+                        <button class="flex items-center gap-2 text-gray-500 hover:text-red-500 transition-colors">
+                            <i data-lucide="heart" class="w-5 h-5"></i> Like
+                        </button>
+                        <button class="flex items-center gap-2 text-gray-500 hover:text-blue-500 transition-colors">
+                            <i data-lucide="share-2" class="w-5 h-5"></i> Share
+                        </button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
 
