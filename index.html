@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Heart, MessageCircle, Share2, Download, Instagram, Menu, X, Send, 
-  User, LogIn, LogOut, Star, Eye, Minus, Plus, Sparkles, Bot, Mail, Lock, UserPlus
+  User, LogIn, LogOut, Star, Eye, Minus, Plus, Sparkles, Bot, Mail, Lock, UserPlus, MapPin
 } from 'lucide-react';
 import { initializeApp } from 'firebase/app';
 import { 
@@ -320,7 +320,9 @@ const ArtCard = ({ art, user, onLoginRequest }) => {
   const artRef = doc(db, 'artifacts', appId, 'public', 'data', 'artworks', `art_${art.id}`);
 
   useEffect(() => {
-    // Real-time listener for this artwork
+    // GUARD: Ensure user/auth is ready before listening to DB
+    if (!user) return;
+
     const unsubscribe = onSnapshot(artRef, (docSnap) => {
       if (docSnap.exists()) {
         const data = docSnap.data();
@@ -502,12 +504,15 @@ const ReviewsSection = ({ user, onLoginRequest }) => {
   const reviewsRef = collection(db, 'artifacts', appId, 'public', 'data', 'site_reviews');
 
   useEffect(() => {
+    // GUARD: Wait for auth before listening
+    if (!user) return;
+
     const unsubscribe = onSnapshot(reviewsRef, (snap) => {
       const data = snap.docs.map(d => ({ id: d.id, ...d.data() }));
       setReviews(data);
     });
     return () => unsubscribe();
-  }, []);
+  }, [user]);
 
   const submitReview = async (e) => {
     e.preventDefault();
@@ -595,18 +600,28 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
   const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [authInitialized, setAuthInitialized] = useState(false);
 
   useEffect(() => {
     const initAuth = async () => {
-      if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-        await signInWithCustomToken(auth, __initial_auth_token);
-      } else {
-        // Fallback to anonymous only if not already signed in
-        if (!auth.currentUser) await signInAnonymously(auth);
+      try {
+        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+          await signInWithCustomToken(auth, __initial_auth_token);
+        } else {
+          // Fallback to anonymous only if not already signed in
+          if (!auth.currentUser) await signInAnonymously(auth);
+        }
+      } catch(err) {
+        console.error("Auth init failed", err);
+      } finally {
+        setAuthInitialized(true);
       }
     };
     initAuth();
-    const unsubscribe = onAuthStateChanged(auth, setUser);
+    const unsubscribe = onAuthStateChanged(auth, (u) => {
+      setUser(u);
+      if(u) setAuthInitialized(true);
+    });
     return () => unsubscribe();
   }, []);
 
@@ -633,6 +648,18 @@ export default function App() {
   const displayedArt = currentPage === 'home' 
     ? MASTER_ARTWORKS.filter(a => a.category === 'featured')
     : MASTER_ARTWORKS.filter(a => a.category === currentPage);
+
+  // --- SHOW LOADING SCREEN IF AUTH NOT READY ---
+  if (!authInitialized) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-gray-500 font-medium">Loading Art Gallery...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-gray-900 pb-20">
@@ -771,6 +798,22 @@ export default function App() {
             <a href="https://www.instagram.com/drawing_with_akshat0812" target="_blank" className="text-gray-400 hover:text-pink-600 transition-colors">
               <Instagram size={24} />
             </a>
+            <button 
+              onClick={() => {
+                if (navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition((pos) => {
+                    const { latitude, longitude } = pos.coords;
+                    window.open(`https://www.google.com/maps?q=${latitude},${longitude}`, '_blank');
+                  }, () => alert("Location access denied."));
+                } else {
+                  alert("Geolocation is not supported by this browser.");
+                }
+              }}
+              className="text-gray-400 hover:text-blue-600 transition-colors"
+              title="Locate Me"
+            >
+              <MapPin size={24} />
+            </button>
           </div>
           <p className="text-gray-400">© 2024 Drawing With Akshat0812. All rights reserved.</p>
         </div>
@@ -780,5 +823,4 @@ export default function App() {
       <AIChatWidget />
     </div>
   );
-
 }
