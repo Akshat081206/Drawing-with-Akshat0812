@@ -1,7 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing With Akshat0812</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+        /* Custom scrollbar for comments */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-900 font-sans">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+                        Akshat0812
+                    </span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium">Home</a>
+                    <a href="watercolor.html" class="text-gray-600 hover:text-blue-600 font-medium">Watercolour</a>
+                    <a href="pencil.html" class="text-gray-600 hover:text-blue-600 font-medium">Pencil Sketch</a>
+                    <a href="video.html" class="text-gray-600 hover:text-blue-600 font-medium">Videos</a>
+                    <a href="others.html" class="text-gray-600 hover:text-blue-600 font-medium">Others</a>
+                    <a href="https://www.instagram.com/drawing_with_akshat0812" target="_blank" class="bg-pink-600 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-pink-700 transition-colors">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                        <span>Follow</span>
+                    </a>
+                </div>
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Heart, MessageCircle, Share2, Download, Instagram, Menu, X, Send, 
-  User, LogIn, LogOut, Star, Eye, Minus, Plus, Sparkles, Bot, Mail, Lock, UserPlus, MapPin
+  User, LogIn, LogOut, Star, Eye, Minus, Plus, Sparkles, Bot, Mail, Lock, UserPlus
 } from 'lucide-react';
 import { initializeApp } from 'firebase/app';
 import { 
@@ -14,6 +61,13 @@ import {
   onSnapshot, collection 
 } from 'firebase/firestore';
 
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
 // --- FIREBASE CONFIGURATION ---
 const firebaseConfig = JSON.parse(__firebase_config);
 const app = initializeApp(firebaseConfig);
@@ -124,6 +178,14 @@ const LoginModal = ({ isOpen, onClose, user }) => {
           </p>
         </div>
 
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Home</a>
+                <a href="watercolor.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Watercolour</a>
+                <a href="pencil.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Pencil Sketch</a>
+                <a href="video.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Videos</a>
+                <a href="others.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Others</a>
         {error && <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm mb-4 border border-red-100">{error}</div>}
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -182,6 +244,25 @@ const LoginModal = ({ isOpen, onClose, user }) => {
             {isSignUp ? 'Login here' : 'Create an account'}
           </button>
         </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-white overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMCwwLDAsMC4wNSkiLz48L3N2Zz4=')]"></div>
+        <div class="relative max-w-20x10 mx-auto px-4 sm:px-10 lg:px-10 pt-20 pb-24 text-center">
+            <div class="mx-auto w-90 h-50 bg-gradient-to-tr from-blue-500 to-purple-500 rectangle-full p-5 mb-8 shadow-xl">
+                <!-- Replace src with 'ajlogo.png' -->
+                <img src="ajlogo.png";>            </div>
+            
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6">
+                Drawing With <span class="text-blue-600">Akshat0812</span>
+            </h1>
+            
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500 leading-relaxed">
+                "My name is Akshat Jain for me Art is a way to connect with the divine, reflect God's beauty, or find a deeper spiritual purpose. It is therapy and a way of expressing yourself."
+            </p>
+        </div>
+    </header>
       </div>
     </div>
   );
@@ -198,6 +279,11 @@ const Lightbox = ({ src, fallback, isOpen, onClose }) => {
         <X size={32} />
       </button>
 
+    <!-- Gallery Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-3xl font-bold text-gray-900">Latest Artworks</h2>
+            <div class="h-1 w-20 bg-blue-600 rounded"></div>
       <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
         <img 
           src={src} 
@@ -320,13 +406,14 @@ const ArtCard = ({ art, user, onLoginRequest }) => {
   const artRef = doc(db, 'artifacts', appId, 'public', 'data', 'artworks', `art_${art.id}`);
 
   useEffect(() => {
-    // GUARD: Ensure user/auth is ready before listening to DB
-    if (!user) return;
-
+    // Real-time listener for this artwork
     const unsubscribe = onSnapshot(artRef, (docSnap) => {
       if (docSnap.exists()) {
         const data = docSnap.data();
-        
+
+        <!-- Gallery Container -->
+        <div id="gallery-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Art cards will be injected here by JavaScript -->
         // Handle Likes (using array length)
         const likedBy = data.likedBy || [];
         setLikesCount(likedBy.length);
@@ -427,7 +514,12 @@ const ArtCard = ({ art, user, onLoginRequest }) => {
             <Sparkles size={18} className={loadingInsight ? "animate-spin" : ""} />
           </button>
         </div>
+    </main>
 
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-20">
+        <div class="max-w-7xl mx-auto py-12 px-4 text-center">
+            <p class="text-gray-400">© 2024 Drawing With Akshat0812. All rights reserved.</p>
         <div className="p-5">
           <h3 className="text-lg font-bold text-gray-800 leading-tight">{art.title}</h3>
           <p className="text-gray-500 text-sm mt-1 mb-4 line-clamp-2">{art.desc}</p>
@@ -490,12 +582,17 @@ const ArtCard = ({ art, user, onLoginRequest }) => {
             </div>
           )}
         </div>
+    </footer>
       </div>
       <Lightbox src={imgSrc} fallback={art.fallback} isOpen={lightboxOpen} onClose={() => setLightboxOpen(false)} />
     </>
   );
 };
 
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
 // 5. Reviews Section
 const ReviewsSection = ({ user, onLoginRequest }) => {
   const [reviews, setReviews] = useState([]);
@@ -503,17 +600,123 @@ const ReviewsSection = ({ user, onLoginRequest }) => {
   const [rating, setRating] = useState(5);
   const reviewsRef = collection(db, 'artifacts', appId, 'public', 'data', 'site_reviews');
 
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
   useEffect(() => {
-    // GUARD: Wait for auth before listening
-    if (!user) return;
-
     const unsubscribe = onSnapshot(reviewsRef, (snap) => {
       const data = snap.docs.map(d => ({ id: d.id, ...d.data() }));
       setReviews(data);
     });
     return () => unsubscribe();
-  }, [user]);
+  }, []);
 
+        // --- ARTWORK DATA ---
+        // Add more images here easily!
+        const artworks = [
+            {
+                id: 1,
+                title: "shree krishna kurukshetra",
+                src: "im 1.jpeg",
+                fallback: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&auto=format&fit=crop",
+                desc: "shree krishna in the battlefield of mahabharat and shrimad bhagwat geeta",
+                likes:0,
+                comments: []
+            },
+            {
+                id: 2,
+                title: "Shree Kalka ji ",
+                src: "im 3.jpeg",
+                fallback: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop",
+                desc: "In her eyes, the fire of justice; in her heart, the ocean of motherly love.",
+                likes: 0,
+                comments: []
+            },
+            {
+                id: 3,
+                title: "Shree Lakshmi Narayan bhagwan",
+                src: "im 4.jpeg",
+                fallback: "https://images.unsplash.com/photo-1579783902614-a3fb39279c15?q=80&w=800&auto=format&fit=crop",
+                desc: "He is the Preserver, She is the Provider. Together, they are the balance of the universe.",
+                likes: 0,
+                comments: []
+            }
+        ];
+
+        // --- RENDER FUNCTION ---
+        const galleryContainer = document.getElementById('gallery-container');
+
+        function renderGallery() {
+            galleryContainer.innerHTML = '';
+            
+            artworks.forEach((art, index) => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-[1.01] duration-300";
+                
+                card.innerHTML = `
+                    <div class="relative group aspect-[4/3] bg-gray-100 overflow-hidden">
+                        <img 
+                            src="${art.src}" 
+                            onerror="this.src='${art.fallback}'" 
+                            alt="${art.title}" 
+                            class="w-full h-full object-cover"
+                        >
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                            <button onclick="downloadImage('${art.src}', ${art.id})" class="bg-white/90 p-3 rounded-full hover:bg-white text-gray-800 transition-colors" title="Download">
+                                <i data-lucide="download" class="w-6 h-6"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">${art.title}</h3>
+                        <p class="text-gray-500 text-sm mb-4">${art.desc}</p>
+
+                        <div class="flex items-center justify-between border-t border-gray-100 pt-4">
+                            <div class="flex gap-4">
+                                <button onclick="toggleLike(${index})" class="flex items-center gap-1.5 transition-colors ${art.isLiked ? 'text-red-500' : 'text-gray-500 hover:text-red-500'}">
+                                    <i data-lucide="heart" class="w-5 h-5" fill="${art.isLiked ? 'currentColor' : 'none'}"></i>
+                                    <span class="font-medium">${art.likes}</span>
+                                </button>
+                                
+                                <button onclick="toggleComments(${index})" class="flex items-center gap-1.5 text-gray-500 hover:text-blue-500 transition-colors">
+                                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                    <span class="font-medium" id="comment-count-${index}">${art.comments.length}</span>
+                                </button>
+                            </div>
+
+                            <button onclick="shareArt('${art.title}')" class="text-gray-400 hover:text-gray-800 transition-colors">
+                                <i data-lucide="share-2" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+
+                        <!-- Comment Section (Hidden by default) -->
+                        <div id="comments-${index}" class="hidden mt-4 pt-4 border-t border-gray-100">
+                            <div id="comment-list-${index}" class="max-h-40 overflow-y-auto space-y-2 mb-3 scrollbar-hide">
+                                ${art.comments.map(c => `
+                                    <div class="bg-gray-50 p-2 rounded-lg text-sm text-gray-700">
+                                        <span class="font-semibold text-xs text-gray-900 block mb-0.5">User</span>
+                                        ${c}
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <form onsubmit="addComment(event, ${index})" class="flex gap-2">
+                                <input type="text" name="comment" placeholder="Add a comment..." class="flex-1 text-sm border border-gray-200 rounded-full px-4 py-2 focus:outline-none focus:border-blue-500 bg-gray-50">
+                                <button type="submit" class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                `;
+                galleryContainer.appendChild(card);
+            });
+            
+            // Re-initialize icons for new elements
+            lucide.createIcons();
+        }
   const submitReview = async (e) => {
     e.preventDefault();
     if (!user || user.isAnonymous) {
@@ -522,6 +725,19 @@ const ReviewsSection = ({ user, onLoginRequest }) => {
     }
     if (!newReview.trim()) return;
 
+        // --- INTERACTION FUNCTIONS ---
+
+        function toggleLike(index) {
+            const art = artworks[index];
+            if (art.isLiked) {
+                art.likes--;
+                art.isLiked = false;
+            } else {
+                art.likes++;
+                art.isLiked = true;
+            }
+            renderGallery();
+        }
     await setDoc(doc(reviewsRef), {
       user: user.displayName || user.email.split('@')[0],
       text: newReview,
@@ -531,6 +747,10 @@ const ReviewsSection = ({ user, onLoginRequest }) => {
     setNewReview("");
   };
 
+        function toggleComments(index) {
+            const commentSection = document.getElementById(`comments-${index}`);
+            commentSection.classList.toggle('hidden');
+        }
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
       <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
@@ -555,6 +775,19 @@ const ReviewsSection = ({ user, onLoginRequest }) => {
           ))}
         </div>
 
+        function addComment(event, index) {
+            event.preventDefault();
+            const input = event.target.elements.comment;
+            const text = input.value.trim();
+            
+            if (text) {
+                artworks[index].comments.push(text);
+                renderGallery();
+                // Re-open comment section after re-render
+                const commentSection = document.getElementById(`comments-${index}`);
+                commentSection.classList.remove('hidden');
+            }
+        }
         <div className="bg-blue-50 p-6 rounded-xl h-fit">
           <h3 className="font-semibold text-gray-800 mb-4">Leave a Review</h3>
           <form onSubmit={submitReview} className="space-y-4">
@@ -593,35 +826,48 @@ const ReviewsSection = ({ user, onLoginRequest }) => {
   );
 };
 
+        async function shareArt(title) {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: title,
+                        text: `Check out this artwork by Akshat0812: ${title}`,
+                        url: window.location.href,
+                    });
+                } catch (err) {
+                    console.log('Error sharing:', err);
+                }
+            } else {
+                alert("Link copied to clipboard!");
+            }
+        }
 // --- MAIN APP ---
 
+        function downloadImage(src, id) {
+            const link = document.createElement('a');
+            link.href = src;
+            link.download = `Akshat_Art_${id}.jpg`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
   const [authModalOpen, setAuthModalOpen] = useState(false);
-  const [authInitialized, setAuthInitialized] = useState(false);
 
   useEffect(() => {
     const initAuth = async () => {
-      try {
-        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-          await signInWithCustomToken(auth, __initial_auth_token);
-        } else {
-          // Fallback to anonymous only if not already signed in
-          if (!auth.currentUser) await signInAnonymously(auth);
-        }
-      } catch(err) {
-        console.error("Auth init failed", err);
-      } finally {
-        setAuthInitialized(true);
+      if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+        await signInWithCustomToken(auth, __initial_auth_token);
+      } else {
+        // Fallback to anonymous only if not already signed in
+        if (!auth.currentUser) await signInAnonymously(auth);
       }
     };
     initAuth();
-    const unsubscribe = onAuthStateChanged(auth, (u) => {
-      setUser(u);
-      if(u) setAuthInitialized(true);
-    });
+    const unsubscribe = onAuthStateChanged(auth, setUser);
     return () => unsubscribe();
   }, []);
 
@@ -631,6 +877,8 @@ export default function App() {
     await signInAnonymously(auth);
   };
 
+        // Initial Render
+        renderGallery();
   const NavLink = ({ page, label, icon: Icon }) => (
     <button 
       onClick={() => { setCurrentPage(page); setMobileMenuOpen(false); }}
@@ -649,18 +897,6 @@ export default function App() {
     ? MASTER_ARTWORKS.filter(a => a.category === 'featured')
     : MASTER_ARTWORKS.filter(a => a.category === currentPage);
 
-  // --- SHOW LOADING SCREEN IF AUTH NOT READY ---
-  if (!authInitialized) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="flex flex-col items-center gap-4">
-          <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-          <p className="text-gray-500 font-medium">Loading Art Gallery...</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-gray-900 pb-20">
       
@@ -675,6 +911,9 @@ export default function App() {
               </span>
             </div>
 
+    </script>
+</body>
+</html>
             <div className="hidden md:flex items-center gap-2">
               <NavLink page="home" label="Home" />
               <NavLink page="watercolor" label="Watercolor" />
@@ -798,22 +1037,6 @@ export default function App() {
             <a href="https://www.instagram.com/drawing_with_akshat0812" target="_blank" className="text-gray-400 hover:text-pink-600 transition-colors">
               <Instagram size={24} />
             </a>
-            <button 
-              onClick={() => {
-                if (navigator.geolocation) {
-                  navigator.geolocation.getCurrentPosition((pos) => {
-                    const { latitude, longitude } = pos.coords;
-                    window.open(`https://www.google.com/maps?q=${latitude},${longitude}`, '_blank');
-                  }, () => alert("Location access denied."));
-                } else {
-                  alert("Geolocation is not supported by this browser.");
-                }
-              }}
-              className="text-gray-400 hover:text-blue-600 transition-colors"
-              title="Locate Me"
-            >
-              <MapPin size={24} />
-            </button>
           </div>
           <p className="text-gray-400">© 2024 Drawing With Akshat0812. All rights reserved.</p>
         </div>
